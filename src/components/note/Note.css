@@ -1,0 +1,33 @@
+.note-container {
+  max-width: 35rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  background-color: var(--BG-BODY);
+}
+
+.note-title {
+  display: flex;
+}
+
+.note-pin {
+  margin-left: auto;
+  display: flex;
+  cursor: pointer;
+}
+
+.note-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.note-icons {
+  display: flex;
+
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.note-icons span {
+  margin-left: 1rem;
+}
