@@ -1,0 +1,9 @@
+.home-page {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-areas: "aside home-main";
+}
+
+.home-main {
+  margin: 1rem;
+}
