@@ -13,9 +13,11 @@ export function Header() {
         <CarbonSearch />
       </div>
       <div className="navbar-icons">
-        <button href="#" className="btn btn-link navbar-login">
+        <Link to='/login'>
+        <button className="btn btn-link navbar-login">
           login
         </button>
+        </Link>
       </div>
     </div>
   );

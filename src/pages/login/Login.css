@@ -1,0 +1,45 @@
+.login-page {
+  display: grid;
+  min-height: 80vh;
+  grid-template-areas:
+    "... ... ..."
+    "... main ...";
+}
+
+.form-login {
+  grid-area: main;
+  padding: 1rem;
+  justify-content: center;
+  background-color: var(--COLOR-FT);
+  gap: 0.5rem;
+  position: relative;
+  height: fit-content;
+}
+
+.form-btn {
+  margin-top: 0;
+}
+
+.title-form,
+.link-account {
+  text-align: center;
+}
+
+.form-checkbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-passwordeye {
+  position: absolute;
+  right: 10px;
+  display: flex;
+}
+
+.parent-div {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  position: relative;
+}
