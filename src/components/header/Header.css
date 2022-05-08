@@ -11,7 +11,7 @@
 .navbar {
   padding: 0.5rem;
   background: none;
-  border-bottom: 1px solid #edebeb;
+  border-bottom: 1px solid var(--COLOR-BORDER);
 }
 
 .navbar-title {
@@ -48,3 +48,4 @@
   color: var(--COLOR-PRIMARY);
   margin-right:1.5rem;
 }
+
