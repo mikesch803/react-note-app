@@ -45,10 +45,16 @@ export function LabelIcon(props) {
 
   
 export function ArchiveIcon(props) {
-    return (
-      <svg width="1em" height="1em" viewBox="0 0 21 21" {...props}><path fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" d="M3.5 7.5h14v7.998a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2zm0-3.978h14a1 1 0 0 1 1 1V6.5a1 1 0 0 1-1 1h-14a1 1 0 0 1-1-1V4.522a1 1 0 0 1 1-1zm5 6.978h4"></path></svg>
+    return (<svg width="1em" height="1em" viewBox="0 0 36 36"><path fill="currentColor" d="M29 32H7V22H5v10a2 2 0 0 0 2 2h22a2 2 0 0 0 2-2V22h-2Z" className="clr-i-outline clr-i-outline-path-1"></path><path fill="currentColor" d="M14 24a1 1 0 0 0 1 1h6a1 1 0 0 0 0-2h-6a1 1 0 0 0-1 1Z" className="clr-i-outline clr-i-outline-path-2"></path><path fill="currentColor" d="M14 18H6v-4h4a3 3 0 0 1-.68-1.87s0-.09 0-.13H5.5A1.5 1.5 0 0 0 4 13.5V20h12Z" className="clr-i-outline clr-i-outline-path-3"></path><path fill="currentColor" d="M30.5 12h-3.84v.13A3 3 0 0 1 26 14h4v4h-8l-2 2h12v-6.5a1.5 1.5 0 0 0-1.5-1.5Z" className="clr-i-outline clr-i-outline-path-4"></path><path fill="currentColor" d="m18 19.18l6.38-6.35A1 1 0 1 0 23 11.41l-4 3.95V3a1 1 0 1 0-2 0v12.4l-4-3.95a1 1 0 0 0-1.41 1.42Z" className="clr-i-outline clr-i-outline-path-5"></path><path fill="none" d="M0 0h36v36H0z"></path></svg>
     )
   }
+
+  
+export function UnarchiveIcon(props) {
+  return (
+    <svg width="1em" height="1em" viewBox="0 0 36 36" {...props}><path fill="currentColor" d="M29 32H7V22H5v10a2 2 0 0 0 2 2h22a2 2 0 0 0 2-2V22h-2Z" className="clr-i-outline clr-i-outline-path-1"></path><path fill="currentColor" d="M14 24a1 1 0 0 0 1 1h6a1 1 0 0 0 0-2h-6a1 1 0 0 0-1 1Z" className="clr-i-outline clr-i-outline-path-2"></path><path fill="currentColor" d="M15 18H6v-4h9v-2H5.5A1.5 1.5 0 0 0 4 13.5V20h11.78a3 3 0 0 1-.78-2Z" className="clr-i-outline clr-i-outline-path-3"></path><path fill="currentColor" d="M30.5 12H21v2h9v4h-9a3 3 0 0 1-.78 2H32v-6.5a1.5 1.5 0 0 0-1.5-1.5Z" className="clr-i-outline clr-i-outline-path-4"></path><path fill="currentColor" d="m13 9.55l4-3.95V18a1 1 0 1 0 2 0V5.6l4 3.95a1 1 0 1 0 1.41-1.42L18 1.78l-6.39 6.35A1 1 0 0 0 13 9.55Z" className="clr-i-outline clr-i-outline-path-5"></path><path fill="none" d="M0 0h36v36H0z"></path></svg>
+  )
+}
 
   
 export function PinLineIcon(props) {
@@ -96,5 +102,12 @@ export function PasswordShowIcon(props) {
 export function EditIcon(props) {
   return (
     <svg width="1em" height="1em" viewBox="0 0 36 36" {...props}><path fill="currentColor" d="M33.87 8.32L28 2.42a2.07 2.07 0 0 0-2.92 0L4.27 23.2l-1.9 8.2a2.06 2.06 0 0 0 2 2.5a2.14 2.14 0 0 0 .43 0l8.29-1.9l20.78-20.76a2.07 2.07 0 0 0 0-2.92ZM12.09 30.2l-7.77 1.63l1.77-7.62L21.66 8.7l6 6ZM29 13.25l-6-6l3.48-3.46l5.9 6Z" className="clr-i-outline clr-i-outline-path-1"></path><path fill="none" d="M0 0h36v36H0z"></path></svg>
+  )
+}
+
+
+export function RestoreIcon(props) {
+  return (
+    <svg width="1em" height="1em" viewBox="0 0 24 24" {...props}><path fill="currentColor" d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v10zm5.65-8.65c.2-.2.51-.2.71 0L16 14h-2v4h-4v-4H8l3.65-3.65zM15.5 4l-.71-.71c-.18-.18-.44-.29-.7-.29H9.91c-.26 0-.52.11-.7.29L8.5 4H6c-.55 0-1 .45-1 1s.45 1 1 1h12c.55 0 1-.45 1-1s-.45-1-1-1h-2.5z"></path></svg>
   )
 }

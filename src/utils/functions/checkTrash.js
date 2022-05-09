@@ -1,0 +1,1 @@
+export const checkTrash = (trashes, note) => trashes.some(trash => trash._id === note._id)

@@ -18,7 +18,9 @@ export const NoteProvider = ({ children }) => {
     tags: "Home",
     cardColor: "var(--BG-BODY)",
   });
+
   const addNoteHandler = async (note, token) => {
+    if (noteDetail.title !== "" && noteDetail.desc !== ""){          
     try {
       const response = await axios.post(
         "/api/notes",
@@ -34,9 +36,17 @@ export const NoteProvider = ({ children }) => {
       if (response.status === 201) {
         setNotes(response.data.notes);
       }
+      setNoteDetail({
+        title: "",
+        desc: "",
+        priority: "Low",
+        tags: "Home",
+        cardColor: "var(--BG-BODY)",
+      });
     } catch (err) {
       console.error(err);
     }
+}
   };
 
   const deleteNoteHandler = async (notes, token) => {
@@ -55,6 +65,8 @@ export const NoteProvider = ({ children }) => {
   };
 
   const editNoteHandler = async (notes,id, token) => {
+      
+    if (noteDetail.title !== "" && noteDetail.desc !== ""){    
     try {
       const response = await axios.post(
         `/api/notes/${id}`,
@@ -70,9 +82,17 @@ export const NoteProvider = ({ children }) => {
       if (response.status === 201) {
         setNotes(response.data.notes);
       }
+      setNoteDetail({
+        title: "",
+        desc: "",
+        priority: "Low",
+        tags: "Home",
+        cardColor: "var(--BG-BODY)",
+      });
     } catch (err) {
       console.log(err);
     }
+}
   };
 
   return (

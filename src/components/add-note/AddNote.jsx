@@ -88,17 +88,8 @@ export function AddNote({ editNoteBtn, setEditNoteBtn }) {
             className="btn btn-primary btn-add"
             type="submit"
             onClick={() => {
-              if (noteDetail.title !== "" && noteDetail.desc !== "") {
                 editNoteHandler(noteDetail, editNoteDetail._id, token);
-                setNoteDetail({
-                  title: "",
-                  desc: "",
-                  priority: "Low",
-                  tags: "Home",
-                  cardColor: "var(--BG-BODY)",
-                });
                 setEditNoteBtn(false);
-              }
             }}
           >
             update
@@ -107,17 +98,8 @@ export function AddNote({ editNoteBtn, setEditNoteBtn }) {
           <button
             className="btn btn-primary btn-add"
             type="submit"
-            onClick={() => {
-              if (noteDetail.title !== "" && noteDetail.desc !== "")
-                addNoteHandler(noteDetail, token);
-              setNoteDetail({
-                title: "",
-                desc: "",
-                priority: "Low",
-                tags: "Home",
-                cardColor: "var(--BG-BODY)",
-              });
-            }}
+            onClick={() =>
+                addNoteHandler(noteDetail, token)}
           >
             Add
           </button>
