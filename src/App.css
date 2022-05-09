@@ -1,10 +1,11 @@
 @import url("https://component-site-fitui.netlify.app/components/components.css");
 
 :root {
-  --COLOR-PRIMARY: #0284C7;
+  --COLOR-PRIMARY: #0284c7;
   --COLOR-PRIMARY-DARK: #075985;
   --COLOR-SECONDARY: #737373;
   --COLOR-FT: white;
+  --COLOR-BORDER: #edebeb;
   --BORDER-RADIUS: 5px;
 }
 
@@ -15,14 +16,10 @@
   font-family: "Roboto", sans-serif;
 }
 
-body {
-  background-color: var(--BG-BODY);
-}
-
 a {
   text-decoration: none;
 }
 
 body {
-  background-color:var(--COLOR-FT);
+  background-color: var(--COLOR-FT);
 }

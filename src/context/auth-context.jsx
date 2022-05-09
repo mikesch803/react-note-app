@@ -6,7 +6,9 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const encodedToken = localStorage.getItem("token");
-  const [token, setToken] = useState(encodedToken?.token);
+  const user = localStorage.getItem("name")
+  const [token, setToken] = useState(localStorage?.token);
+  const [userName, setUserName] = useState(localStorage?.name)
   const navigate = useNavigate();
   const location = useLocation();
   const [state, dispatch] = useReducer(AuthReducer, {
@@ -94,11 +96,12 @@ export const AuthProvider = ({ children }) => {
         email: "adarshbalika@gmail.com",
         password: "adarshBalika123",
       });
-
+console.log(response)
       if (response.status === 200) {
         setToken(encodedToken);
+        setUserName(user)
         navigate(location?.state?.from?.pathname || "/");
-
+        localStorage.setItem("name", response.data.foundUser.firstName);
         localStorage.setItem("token", response.data.encodedToken);
       }
     } catch (error) {
@@ -116,7 +119,8 @@ export const AuthProvider = ({ children }) => {
         guestLoginHandler,
         token,
         state,
-        dispatch,
+        userName,
+        dispatch, 
         logoutHandler,
       }}
     >
