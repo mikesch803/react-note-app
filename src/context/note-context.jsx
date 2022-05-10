@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 export const NoteContext = createContext();
 
 export const NoteProvider = ({ children }) => {
@@ -20,7 +21,7 @@ export const NoteProvider = ({ children }) => {
   });
 
   const addNoteHandler = async (note, token) => {
-    if (noteDetail.title !== "" && noteDetail.desc !== ""){          
+    if (note.title !== "" && note.desc !== ""){          
     try {
       const response = await axios.post(
         "/api/notes",
@@ -35,6 +36,7 @@ export const NoteProvider = ({ children }) => {
       );
       if (response.status === 201) {
         setNotes(response.data.notes);
+        toast.success('Note added')
       }
       setNoteDetail({
         title: "",
@@ -81,6 +83,7 @@ export const NoteProvider = ({ children }) => {
       );
       if (response.status === 201) {
         setNotes(response.data.notes);
+        toast.success('Note updated')
       }
       setNoteDetail({
         title: "",

@@ -31,7 +31,6 @@ export function Note({ note, setEditNoteBtn }) {
   const {
     trashNotes,
     addToTrashHandler,
-    restoreFromTrashHandler,
     deleteFromTrashHandler
   } = useTrashContext();
   const { token } = useAuthContext();
@@ -107,10 +106,10 @@ export function Note({ note, setEditNoteBtn }) {
             <button className='btn' onClick={() => deleteFromTrashHandler(note)}>
               <TrashIcon />
             </button>
-            <button
+            <button className="btn"
               onClick={() => {
-                restoreFromTrashHandler(note);
                 addNoteHandler(note, token);
+                deleteFromTrashHandler(note);
               }}
             >
               <RestoreIcon />

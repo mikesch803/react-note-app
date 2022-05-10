@@ -17,15 +17,15 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Router>
-      <TrashProvider>
-        <ArchiveProvider>
-          <NoteProvider>
-            <AuthProvider>
+      <AuthProvider>
+          <TrashProvider>
+            <ArchiveProvider>
+        <NoteProvider>
               <App />
-            </AuthProvider>
-          </NoteProvider>
-        </ArchiveProvider>
-      </TrashProvider>
+        </NoteProvider>
+            </ArchiveProvider>
+          </TrashProvider>
+      </AuthProvider>
     </Router>
   </React.StrictMode>
 );

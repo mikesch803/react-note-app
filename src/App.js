@@ -10,7 +10,12 @@ import {
   Trash,
   WithHeader,
 } from "./pages";
+import { injectStyle } from "react-toastify/dist/inject-style";
+import { ToastContainer } from "react-toastify";
 function App() {
+  if (typeof window !== "undefined") {
+    injectStyle();
+  }
   return (
     <div className="App">
       <Routes>
@@ -25,6 +30,7 @@ function App() {
         </Route>
         <Route path="/" element={<LandingPage />} />
       </Routes>
+      <ToastContainer/>
     </div>
   );
 }
