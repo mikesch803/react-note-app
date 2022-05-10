@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 export const NoteContext = createContext();
 
 export const NoteProvider = ({ children }) => {
@@ -18,7 +19,9 @@ export const NoteProvider = ({ children }) => {
     tags: "Home",
     cardColor: "var(--BG-BODY)",
   });
+
   const addNoteHandler = async (note, token) => {
+    if (note.title !== "" && note.desc !== ""){          
     try {
       const response = await axios.post(
         "/api/notes",
@@ -33,10 +36,19 @@ export const NoteProvider = ({ children }) => {
       );
       if (response.status === 201) {
         setNotes(response.data.notes);
+        toast.success('Note added')
       }
+      setNoteDetail({
+        title: "",
+        desc: "",
+        priority: "Low",
+        tags: "Home",
+        cardColor: "var(--BG-BODY)",
+      });
     } catch (err) {
       console.error(err);
     }
+}
   };
 
   const deleteNoteHandler = async (notes, token) => {
@@ -55,6 +67,8 @@ export const NoteProvider = ({ children }) => {
   };
 
   const editNoteHandler = async (notes,id, token) => {
+      
+    if (noteDetail.title !== "" && noteDetail.desc !== ""){    
     try {
       const response = await axios.post(
         `/api/notes/${id}`,
@@ -69,10 +83,19 @@ export const NoteProvider = ({ children }) => {
       );
       if (response.status === 201) {
         setNotes(response.data.notes);
+        toast.success('Note updated')
       }
+      setNoteDetail({
+        title: "",
+        desc: "",
+        priority: "Low",
+        tags: "Home",
+        cardColor: "var(--BG-BODY)",
+      });
     } catch (err) {
       console.log(err);
     }
+}
   };
 
   return (

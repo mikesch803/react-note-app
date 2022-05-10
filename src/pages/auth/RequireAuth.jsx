@@ -4,7 +4,6 @@ import { useAuthContext } from "../../context";
 export const RequireAuth = () => {
   const { token } = useAuthContext();
   const location = useLocation();
-
   return token ? (
     <Outlet />
   ) : (

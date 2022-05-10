@@ -40,7 +40,6 @@ export function AddNote({ editNoteBtn, setEditNoteBtn }) {
           onChange={(e) =>
             setNoteDetail({ ...noteDetail, priority: e.target.value })
           }
-          value={noteDetail.priority}
         >
           <option hidden>Priority</option>
           <option>Low</option>
@@ -52,7 +51,6 @@ export function AddNote({ editNoteBtn, setEditNoteBtn }) {
           onChange={(e) =>
             setNoteDetail({ ...noteDetail, tags: e.target.value })
           }
-          value={noteDetail.tags}
         >
           <option hidden>Tags</option>
           <option>Home</option>
@@ -88,17 +86,8 @@ export function AddNote({ editNoteBtn, setEditNoteBtn }) {
             className="btn btn-primary btn-add"
             type="submit"
             onClick={() => {
-              if (noteDetail.title !== "" && noteDetail.desc !== "") {
                 editNoteHandler(noteDetail, editNoteDetail._id, token);
-                setNoteDetail({
-                  title: "",
-                  desc: "",
-                  priority: "Low",
-                  tags: "Home",
-                  cardColor: "var(--BG-BODY)",
-                });
                 setEditNoteBtn(false);
-              }
             }}
           >
             update
@@ -107,17 +96,8 @@ export function AddNote({ editNoteBtn, setEditNoteBtn }) {
           <button
             className="btn btn-primary btn-add"
             type="submit"
-            onClick={() => {
-              if (noteDetail.title !== "" && noteDetail.desc !== "")
-                addNoteHandler(noteDetail, token);
-              setNoteDetail({
-                title: "",
-                desc: "",
-                priority: "Low",
-                tags: "Home",
-                cardColor: "var(--BG-BODY)",
-              });
-            }}
+            onClick={() =>
+                addNoteHandler(noteDetail, token)}
           >
             Add
           </button>

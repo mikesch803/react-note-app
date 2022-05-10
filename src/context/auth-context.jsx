@@ -2,13 +2,13 @@ import { createContext, useContext, useReducer, useState } from "react";
 import { AuthReducer } from "../reducer/AuthReducer";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const encodedToken = localStorage.getItem("token");
-  const user = localStorage.getItem("name")
-  const [token, setToken] = useState(localStorage?.token);
-  const [userName, setUserName] = useState(localStorage?.name)
+  const token = localStorage.getItem("token");
+  const user = localStorage.getItem("name");
+  const [userName, setUserName] = useState(localStorage?.name);
   const navigate = useNavigate();
   const location = useLocation();
   const [state, dispatch] = useReducer(AuthReducer, {
@@ -29,11 +29,12 @@ export const AuthProvider = ({ children }) => {
       try {
         const response = await axios.post(`/api/auth/signup`, state.field);
         if (response.status === 201) {
-          setToken(encodedToken);
-          navigate("/");
+          toast.success("Account created");
+          navigate(location?.state?.from?.pathname || "/");
+          localStorage.setItem("name", response.data.foundUser.firstName);
           localStorage.setItem("token", response.data.encodedToken);
+          setUserName(user);
         }
-        console.log(response);
       } catch (error) {
         console.log(error);
       }
@@ -66,13 +67,15 @@ export const AuthProvider = ({ children }) => {
         const response = await axios.post(`/api/auth/login`, state.field);
 
         if (response.status === 200) {
-          setToken(encodedToken);
+          toast.success("Login successfully");
           navigate(location?.state?.from?.pathname || "/");
-
+          localStorage.setItem("name", response.data.foundUser.firstName);
           localStorage.setItem("token", response.data.encodedToken);
+          setUserName(user);
         }
       } catch (error) {
         if (error.response.status === 404) {
+          toast.warn("Account does not exist");
         }
       }
     }
@@ -96,13 +99,12 @@ export const AuthProvider = ({ children }) => {
         email: "adarshbalika@gmail.com",
         password: "adarshBalika123",
       });
-console.log(response)
       if (response.status === 200) {
-        setToken(encodedToken);
-        setUserName(user)
+        toast.success("Login successfully");
         navigate(location?.state?.from?.pathname || "/");
         localStorage.setItem("name", response.data.foundUser.firstName);
         localStorage.setItem("token", response.data.encodedToken);
+        setUserName(user);
       }
     } catch (error) {
       console.log(error);
@@ -120,7 +122,7 @@ console.log(response)
         token,
         state,
         userName,
-        dispatch, 
+        dispatch,
         logoutHandler,
       }}
     >
