@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { IcBaselineColorLens } from "../../assests/icons/icons";
 import { useAuthContext, useNoteContext } from "../../context";
 import { colorPlallateData } from "../../data/color-pallate-data";
+import { priorityData, tagsData } from "../../data/filter-data";
 import "./AddNote.css";
 export function AddNote({ editNoteBtn, setEditNoteBtn }) {
   const { token } = useAuthContext();
@@ -43,9 +44,9 @@ export function AddNote({ editNoteBtn, setEditNoteBtn }) {
           value={noteDetail.priority}
         >
           <option hidden>Priority</option>
-          <option>Low</option>
-          <option>Medium</option>
-          <option>High</option>
+          {priorityData.map((option) => (
+            <option>{option}</option>
+          ))}
         </select>
         <select
           className="select-option"
@@ -55,11 +56,9 @@ export function AddNote({ editNoteBtn, setEditNoteBtn }) {
           value={noteDetail.tags}
         >
           <option hidden>Tags</option>
-          <option>Home</option>
-          <option>Work</option>
-          <option>Health</option>
-          <option>Team</option>
-          <option>Chores</option>
+          {tagsData.map((option) => (
+            <option>{option}</option>
+          ))}
         </select>
         <div
           className="color-plallate"
@@ -88,8 +87,8 @@ export function AddNote({ editNoteBtn, setEditNoteBtn }) {
             className="btn btn-primary btn-add"
             type="submit"
             onClick={() => {
-                editNoteHandler(noteDetail, editNoteDetail._id, token);
-                setEditNoteBtn(false);
+              editNoteHandler(noteDetail, editNoteDetail._id, token);
+              setEditNoteBtn(false);
             }}
           >
             update
@@ -98,8 +97,7 @@ export function AddNote({ editNoteBtn, setEditNoteBtn }) {
           <button
             className="btn btn-primary btn-add"
             type="submit"
-            onClick={() =>
-                addNoteHandler(noteDetail, token)}
+            onClick={() => addNoteHandler(noteDetail, token)}
           >
             Add
           </button>

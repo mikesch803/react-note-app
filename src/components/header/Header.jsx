@@ -4,7 +4,8 @@ import { CarbonSearch } from "../../assests/icons/icons";
 import { useAuthContext } from "../../context";
 import "./Header.css";
 export function Header() {
-  const { token, userName } = useAuthContext();
+  const { token, user } = useAuthContext();
+
   return (
     <div className="navbar">
       <Link to="/">
@@ -16,7 +17,7 @@ export function Header() {
       </div>
       <div className="navbar-icons">
         {token ? (
-          <button className="btn btn-link navbar-login btn-user">{userName}</button>
+          <span className="btn btn-link navbar-login btn-user">{user.firstName}</span>
         ) : (
           <Link to="/login">
             <button className="btn btn-link navbar-login">login</button>

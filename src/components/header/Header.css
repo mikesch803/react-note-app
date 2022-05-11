@@ -12,6 +12,8 @@
   padding: 0.5rem;
   background: none;
   border-bottom: 1px solid var(--COLOR-BORDER);
+  position: sticky;
+  top: 0;
 }
 
 .navbar-title {

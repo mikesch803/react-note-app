@@ -1,13 +1,13 @@
 .aside {
   grid-area: aside;
-  margin: 0rem 1rem;
+  margin: 1rem;
   max-width: 250px;
 }
 
 .sidebar {
   margin: 0.5rem;
   position: sticky;
-  top: 3.9rem;
+  top: 5rem;
 }
 
 .sidebar > a,

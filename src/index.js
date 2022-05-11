@@ -7,6 +7,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import {
   ArchiveProvider,
   AuthProvider,
+  FilterProvider,
   NoteProvider,
   TrashProvider,
 } from "./context";
@@ -20,9 +21,11 @@ root.render(
       <TrashProvider>
         <ArchiveProvider>
           <NoteProvider>
-            <AuthProvider>
-              <App />
-            </AuthProvider>
+            <FilterProvider>
+              <AuthProvider>
+                <App />
+              </AuthProvider>
+            </FilterProvider>
           </NoteProvider>
         </ArchiveProvider>
       </TrashProvider>

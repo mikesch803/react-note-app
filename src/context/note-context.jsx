@@ -7,20 +7,21 @@ export const NoteProvider = ({ children }) => {
   const [noteDetail, setNoteDetail] = useState({
     title: "",
     desc: "",
-    priority: "Low",
-    tags: "Home",
+    priority: "low",
+    tags: "home",
     cardColor: "var(--BG-BODY)",
+    date: new Date().getTime()
   });
   const [editNoteDetail, setEditNoteDetail] = useState({
     title: "",
     desc: "",
-    priority: "Low",
-    tags: "Home",
+    priority: "low",
+    tags: "home",
     cardColor: "var(--BG-BODY)",
   });
-
+console.log(notes)
   const addNoteHandler = async (note, token) => {
-    if (noteDetail.title !== "" && noteDetail.desc !== ""){          
+    if (note.title.trim() !== "" && note.desc.trim() !== ""){          
     try {
       const response = await axios.post(
         "/api/notes",
@@ -39,9 +40,10 @@ export const NoteProvider = ({ children }) => {
       setNoteDetail({
         title: "",
         desc: "",
-        priority: "Low",
-        tags: "Home",
+        priority: "low",
+        tags: "home",
         cardColor: "var(--BG-BODY)",
+        date: new Date().getTime()
       });
     } catch (err) {
       console.error(err);
@@ -66,7 +68,7 @@ export const NoteProvider = ({ children }) => {
 
   const editNoteHandler = async (notes,id, token) => {
       
-    if (noteDetail.title !== "" && noteDetail.desc !== ""){    
+    if (notes.title.trim() !== "" && notes.desc.trim() !== ""){    
     try {
       const response = await axios.post(
         `/api/notes/${id}`,
@@ -85,8 +87,8 @@ export const NoteProvider = ({ children }) => {
       setNoteDetail({
         title: "",
         desc: "",
-        priority: "Low",
-        tags: "Home",
+        priority: "low",
+        tags: "home",
         cardColor: "var(--BG-BODY)",
       });
     } catch (err) {

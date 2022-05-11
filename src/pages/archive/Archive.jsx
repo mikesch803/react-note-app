@@ -23,9 +23,9 @@ export function Archive() {
     })();
   }, [setArchives, unArchiveHandler, token]);
   return (
-    <div className="home-page">
+    <div className="page-layout">
       <Aside />
-      <main className="home-main">
+      <main className="main">
         <ul>
           {archives.map((note) => (
             <li key={note._id} className="m-b-1">

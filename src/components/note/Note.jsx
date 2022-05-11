@@ -107,7 +107,7 @@ export function Note({ note, setEditNoteBtn }) {
             <button className='btn' onClick={() => deleteFromTrashHandler(note)}>
               <TrashIcon />
             </button>
-            <button
+            <button className="btn"
               onClick={() => {
                 restoreFromTrashHandler(note);
                 addNoteHandler(note, token);

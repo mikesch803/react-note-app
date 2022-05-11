@@ -1,14 +1,15 @@
-import { createContext, useContext, useReducer, useState } from "react";
+import { createContext, useContext, useReducer } from "react";
 import { AuthReducer } from "../reducer/AuthReducer";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { useNoteContext, useArchiveContext, useTrashContext } from "./index";
+
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const encodedToken = localStorage.getItem("token");
-  const user = localStorage.getItem("name")
-  const [token, setToken] = useState(localStorage?.token);
-  const [userName, setUserName] = useState(localStorage?.name)
+  const token = localStorage.getItem("token");
+  const user = JSON.parse(localStorage.getItem("userDetail"));
   const navigate = useNavigate();
   const location = useLocation();
   const [state, dispatch] = useReducer(AuthReducer, {
@@ -18,6 +19,9 @@ export const AuthProvider = ({ children }) => {
     passwordErrState: false,
     confirmPasswordErrState: false,
   });
+  const { setNotes } = useNoteContext();
+  const { setArchives } = useArchiveContext();
+  const { setTrashNotes } = useTrashContext();
 
   const signupHandler = async (e) => {
     e.preventDefault();
@@ -29,8 +33,9 @@ export const AuthProvider = ({ children }) => {
       try {
         const response = await axios.post(`/api/auth/signup`, state.field);
         if (response.status === 201) {
-          setToken(encodedToken);
-          navigate("/");
+          toast.success("Account created");
+          navigate(location?.state?.from?.pathname || "/");
+          localStorage.setItem("userDetail", response.data.foundUser);
           localStorage.setItem("token", response.data.encodedToken);
         }
         console.log(response);
@@ -66,9 +71,8 @@ export const AuthProvider = ({ children }) => {
         const response = await axios.post(`/api/auth/login`, state.field);
 
         if (response.status === 200) {
-          setToken(encodedToken);
           navigate(location?.state?.from?.pathname || "/");
-
+          localStorage.setItem("userDetail", response.data.foundUser);
           localStorage.setItem("token", response.data.encodedToken);
         }
       } catch (error) {
@@ -98,10 +102,11 @@ export const AuthProvider = ({ children }) => {
       });
 console.log(response)
       if (response.status === 200) {
-        setToken(encodedToken);
-        setUserName(user)
         navigate(location?.state?.from?.pathname || "/");
-        localStorage.setItem("name", response.data.foundUser.firstName);
+        localStorage.setItem(
+          "userDetail",
+          JSON.stringify(response.data.foundUser)
+        );
         localStorage.setItem("token", response.data.encodedToken);
       }
     } catch (error) {
@@ -109,7 +114,13 @@ console.log(response)
     }
   };
 
-  const logoutHandler = () => {};
+  const logoutHandler = () => {
+    setNotes([]);
+    setArchives([]);
+    setTrashNotes([]);
+    localStorage.clear();
+    toast.success("Logout successfully");
+  };
 
   return (
     <AuthContext.Provider
@@ -119,8 +130,8 @@ console.log(response)
         guestLoginHandler,
         token,
         state,
-        userName,
-        dispatch, 
+        user,
+        dispatch,
         logoutHandler,
       }}
     >

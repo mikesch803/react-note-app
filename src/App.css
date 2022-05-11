@@ -23,3 +23,8 @@ a {
 body {
   background-color: var(--COLOR-FT);
 }
+
+.App {
+  width: 80%;
+  margin: auto;
+}

@@ -1,9 +1,14 @@
-.home-page {
+.page-layout {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  grid-template-areas: "aside home-main";
+  grid-template-areas: "aside main filter";
 }
 
-.home-main {
+.main {
   margin: 1rem;
+  grid-area: main;
+}
+
+.filter {
+  grid-area: filter;
 }

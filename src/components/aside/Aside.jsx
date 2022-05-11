@@ -6,6 +6,9 @@ export function Aside() {
   const NavLinkStyles = ({ isActive }) => {
     return {
       color: isActive ? `` : "black",
+      backgroundColor: isActive ? "lightblue":"",
+      borderBottomRightRadius: isActive ? "25px":"",
+      borderTopRightRadius: isActive ? "25px":""
     };
   };
 
