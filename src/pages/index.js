@@ -6,3 +6,4 @@ export { Login } from "./login/Login";
 export { RequireAuth } from "./auth/RequireAuth";
 export { Archive } from "./archive/Archive";
 export {Trash} from './trash/Trash'
+export {Profile} from './profile/Profile'

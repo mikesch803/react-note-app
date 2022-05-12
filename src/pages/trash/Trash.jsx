@@ -5,9 +5,9 @@ export function Trash() {
   const { trashNotes, emptyTrashHandler } = useTrashContext();
   const [editNoteBtn, setEditNoteBtn] = useState(false);
   return (
-    <div className="home-page">
+    <div className="page-layout">
       <Aside />
-      <main className="home-main">
+      <main className="main">
           <button className="btn btn-link" onClick={emptyTrashHandler}>Empty Trash</button>
         <ul>
           {trashNotes.map((note) => (

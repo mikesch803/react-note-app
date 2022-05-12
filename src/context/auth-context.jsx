@@ -1,14 +1,15 @@
-import { createContext, useContext, useReducer, useState } from "react";
+import { createContext, useContext, useReducer } from "react";
 import { AuthReducer } from "../reducer/AuthReducer";
 import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useNoteContext, useArchiveContext, useTrashContext } from "./index";
+
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const token = localStorage.getItem("token");
-  const user = localStorage.getItem("name");
-  const [userName, setUserName] = useState(localStorage?.name);
+  const user = JSON.parse(localStorage.getItem("userDetail"));
   const navigate = useNavigate();
   const location = useLocation();
   const [state, dispatch] = useReducer(AuthReducer, {
@@ -18,6 +19,9 @@ export const AuthProvider = ({ children }) => {
     passwordErrState: false,
     confirmPasswordErrState: false,
   });
+  const { setNotes } = useNoteContext();
+  const { setArchives } = useArchiveContext();
+  const { setTrashNotes } = useTrashContext();
 
   const signupHandler = async (e) => {
     e.preventDefault();
@@ -31,10 +35,10 @@ export const AuthProvider = ({ children }) => {
         if (response.status === 201) {
           toast.success("Account created");
           navigate(location?.state?.from?.pathname || "/");
-          localStorage.setItem("name", response.data.foundUser.firstName);
+          localStorage.setItem("userDetail", response.data.foundUser);
           localStorage.setItem("token", response.data.encodedToken);
-          setUserName(user);
         }
+        console.log(response);
       } catch (error) {
         console.log(error);
       }
@@ -67,15 +71,12 @@ export const AuthProvider = ({ children }) => {
         const response = await axios.post(`/api/auth/login`, state.field);
 
         if (response.status === 200) {
-          toast.success("Login successfully");
           navigate(location?.state?.from?.pathname || "/");
-          localStorage.setItem("name", response.data.foundUser.firstName);
+          localStorage.setItem("userDetail", response.data.foundUser);
           localStorage.setItem("token", response.data.encodedToken);
-          setUserName(user);
         }
       } catch (error) {
         if (error.response.status === 404) {
-          toast.warn("Account does not exist");
         }
       }
     }
@@ -99,19 +100,27 @@ export const AuthProvider = ({ children }) => {
         email: "adarshbalika@gmail.com",
         password: "adarshBalika123",
       });
+console.log(response)
       if (response.status === 200) {
-        toast.success("Login successfully");
         navigate(location?.state?.from?.pathname || "/");
-        localStorage.setItem("name", response.data.foundUser.firstName);
+        localStorage.setItem(
+          "userDetail",
+          JSON.stringify(response.data.foundUser)
+        );
         localStorage.setItem("token", response.data.encodedToken);
-        setUserName(user);
       }
     } catch (error) {
       console.log(error);
     }
   };
 
-  const logoutHandler = () => {};
+  const logoutHandler = () => {
+    setNotes([]);
+    setArchives([]);
+    setTrashNotes([]);
+    localStorage.clear();
+    toast.success("Logout successfully");
+  };
 
   return (
     <AuthContext.Provider
@@ -121,7 +130,7 @@ export const AuthProvider = ({ children }) => {
         guestLoginHandler,
         token,
         state,
-        userName,
+        user,
         dispatch,
         logoutHandler,
       }}
@@ -132,3 +141,4 @@ export const AuthProvider = ({ children }) => {
 };
 
 export const useAuthContext = () => useContext(AuthContext);
+

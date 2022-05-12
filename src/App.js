@@ -5,6 +5,7 @@ import {
   Home,
   LandingPage,
   Login,
+  Profile,
   RequireAuth,
   Signup,
   Trash,
@@ -24,6 +25,7 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/archive" element={<Archive />} />
             <Route path="/trash" element={<Trash />} />
+            <Route path="/profile" element={<Profile/>}/>
           </Route>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />

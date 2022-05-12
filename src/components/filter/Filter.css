@@ -1,0 +1,47 @@
+.filter-container {
+    padding: 1rem;
+    border: 1px solid var(--COLOR-BORDER);
+    width: fit-content;
+    margin-top: 1rem;
+    margin-right: 1rem;
+}
+
+.aside-filter {
+    position: sticky;
+    top: 5rem;
+}
+
+.filter-title {
+    display: flex;
+    align-items: center;
+}
+
+.filter-title > button {
+    background: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-left: auto;
+    color: var(--COLOR-PRIMARY);
+}
+
+.filter-container h3 {
+    margin-top: 1rem;
+}
+
+.filter-container label {
+    display: flex;
+    margin-right: 10px;
+    margin-top: 0.5rem;
+    align-items: center;
+}
+
+.filter-container input {
+    margin-right: 5px;
+}
+
+.filter-container ul {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+}

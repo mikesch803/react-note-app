@@ -23,6 +23,7 @@ export const TrashProvider = ({ children }) => {
     <TrashContext.Provider
       value={{
         trashNotes,
+        setTrashNotes,
         addToTrashHandler,
         deleteFromTrashHandler,
         emptyTrashHandler,

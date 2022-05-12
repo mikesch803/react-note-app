@@ -7,6 +7,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import {
   ArchiveProvider,
   AuthProvider,
+  FilterProvider,
   NoteProvider,
   TrashProvider,
 } from "./context";
@@ -17,15 +18,18 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Router>
-      <AuthProvider>
-          <TrashProvider>
-            <ArchiveProvider>
-        <NoteProvider>
-              <App />
-        </NoteProvider>
-            </ArchiveProvider>
-          </TrashProvider>
-      </AuthProvider>
+      <TrashProvider>
+        <ArchiveProvider>
+          <NoteProvider>
+            <FilterProvider>
+              <AuthProvider>
+                <App />
+              </AuthProvider>
+            </FilterProvider>
+          </NoteProvider>
+        </ArchiveProvider>
+      </TrashProvider>
     </Router>
   </React.StrictMode>
 );
+
