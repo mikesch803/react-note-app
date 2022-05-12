@@ -1,5 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import axios from "axios";
+import { toast } from "react-toastify";
 export const ArchiveContext = createContext();
 
 export const ArchiveProvider = ({ children }) => {
@@ -18,6 +19,7 @@ export const ArchiveProvider = ({ children }) => {
       );
       if (response.status === 201) {
         setArchives(response.data.archives);
+        toast.success('Archived')
       }
     } catch (err) {
       console.log(err);
@@ -34,6 +36,7 @@ export const ArchiveProvider = ({ children }) => {
       );
       if (response.status === 201) {
         setArchives(response.data.archives);
+        toast.success('Unarchived')
       }
     } catch (err) {
       console.log(err);

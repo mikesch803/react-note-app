@@ -41,7 +41,6 @@ export function AddNote({ editNoteBtn, setEditNoteBtn }) {
           onChange={(e) =>
             setNoteDetail({ ...noteDetail, priority: e.target.value })
           }
-          value={noteDetail.priority}
         >
           <option hidden>Priority</option>
           {priorityData.map((option) => (
@@ -53,7 +52,6 @@ export function AddNote({ editNoteBtn, setEditNoteBtn }) {
           onChange={(e) =>
             setNoteDetail({ ...noteDetail, tags: e.target.value })
           }
-          value={noteDetail.tags}
         >
           <option hidden>Tags</option>
           {tagsData.map((option) => (

@@ -1,25 +1,22 @@
 import { createContext, useContext, useState } from "react";
-
+import { toast } from "react-toastify";
 export const TrashContext = createContext();
 
 export const TrashProvider = ({ children }) => {
   const [trashNotes, setTrashNotes] = useState([]);
-
   const addToTrashHandler = (note) => {
     setTrashNotes([...trashNotes, note]);
-  };
-
-  const restoreFromTrashHandler = (note) => {
-    setTrashNotes(trashNotes.filter((trashNote) => trashNote._id === note._id));
-    setTrashNotes(trashNotes.filter((trashNote) => trashNote._id !== note._id));
+    toast.success("Moved to trash");
   };
 
   const deleteFromTrashHandler = (note) => {
     setTrashNotes(trashNotes.filter((trashNote) => trashNote._id !== note._id));
+    toast.success("Note deleted");
   };
 
   const emptyTrashHandler = () => {
     setTrashNotes([]);
+    toast.success("Cleared Trash");
   };
 
   return (
@@ -28,7 +25,6 @@ export const TrashProvider = ({ children }) => {
         trashNotes,
         setTrashNotes,
         addToTrashHandler,
-        restoreFromTrashHandler,
         deleteFromTrashHandler,
         emptyTrashHandler,
       }}
