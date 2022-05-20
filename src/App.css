@@ -28,7 +28,7 @@ a {
   background-color: var(--COLOR-FT);
 }
 
-[data-theme="dark"] {
+[data-theme="dark"].App {
   background-color: var(--BG-DARK);
   color: var(--COLOR-FT);
 } 

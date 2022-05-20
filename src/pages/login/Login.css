@@ -10,10 +10,13 @@
   grid-area: main;
   padding: 1rem;
   justify-content: center;
-  background-color: var(--COLOR-FT);
+  background-color: inherit;
+  color: inherit;
   gap: 0.5rem;
   position: relative;
   height: fit-content;
+  border: 1px solid;
+  border-radius: var(--BORDER-RADIUS);
 }
 
 .form-btn {
@@ -35,6 +38,7 @@
   position: absolute;
   right: 10px;
   display: flex;
+  color: inherit;
 }
 
 .parent-div {
@@ -43,3 +47,13 @@
   align-items: center;
   position: relative;
 }
+
+input.form-input, .form {
+  color: inherit;
+  background-color: inherit;
+}
+
+[data-theme="dark"].login-page {
+  background-color: var(--BG-DARK);
+  color: var(--COLOR-FT);
+} 

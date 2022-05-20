@@ -1,5 +1,6 @@
 .landing-page {
   display: grid;
+  grid-template-columns: 50% 50%;
   grid-template-areas: "main-text main-img";
 }
 
@@ -40,4 +41,25 @@
 
 .main-img {
   margin: 2rem;
+  grid-area: main-img;
+}
+
+.responsive {
+  width: 100%;
+  height: auto;
+}
+
+@media only screen and (max-width: 850px) {
+  .landing-page {
+    grid-template-columns: 1fr;
+    grid-template-areas: "main-text"
+    "main-img";
+  }
+
+  .main-text {
+    margin: 2rem;
+  }
+  .main-img {
+    margin-bottom: 5rem;
+  }
 }

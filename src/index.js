@@ -19,19 +19,19 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Router>
-      <TrashProvider>
-        <ArchiveProvider>
-          <NoteProvider>
-            <FilterProvider>
-              <AuthProvider>
-                <ThemeProvider>
+      <ThemeProvider>
+        <TrashProvider>
+          <ArchiveProvider>
+            <NoteProvider>
+              <FilterProvider>
+                <AuthProvider>
                   <App />
-                </ThemeProvider>
-              </AuthProvider>
-            </FilterProvider>
-          </NoteProvider>
-        </ArchiveProvider>
-      </TrashProvider>
+                </AuthProvider>
+              </FilterProvider>
+            </NoteProvider>
+          </ArchiveProvider>
+        </TrashProvider>
+      </ThemeProvider>
     </Router>
   </React.StrictMode>
 );
