@@ -4,3 +4,4 @@ export { Note } from "./note/Note";
 export { AddNote } from "./add-note/AddNote";
 export { Filter } from "./filter/Filter";
 export {SearchBar} from './search-bar/SearchBar';
+export {NavbarBottom} from './navbar-bottom/NavbarBottom';

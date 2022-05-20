@@ -43,5 +43,9 @@
 .filter-container ul {
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
+}
+
+[data-theme="dark"].aside-filter {
+    background-color: var(--BG-DARK);
+    color: var(--COLOR-FT);
 }

@@ -9,6 +9,7 @@ import {
   AuthProvider,
   FilterProvider,
   NoteProvider,
+  ThemeProvider,
   TrashProvider,
 } from "./context";
 // Call make Server
@@ -23,7 +24,9 @@ root.render(
           <NoteProvider>
             <FilterProvider>
               <AuthProvider>
-                <App />
+                <ThemeProvider>
+                  <App />
+                </ThemeProvider>
               </AuthProvider>
             </FilterProvider>
           </NoteProvider>
@@ -32,4 +35,3 @@ root.render(
     </Router>
   </React.StrictMode>
 );
-

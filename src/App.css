@@ -7,6 +7,7 @@
   --COLOR-FT: white;
   --COLOR-BORDER: #edebeb;
   --BORDER-RADIUS: 5px;
+  --BG-DARK:#0F172A;
 }
 
 * {
@@ -20,11 +21,19 @@ a {
   text-decoration: none;
 }
 
-body {
+.App {
+  margin: auto;
+  min-height: 100vh;
+  height: 100%;
   background-color: var(--COLOR-FT);
 }
 
-.App {
-  width: 80%;
-  margin: auto;
-}
+[data-theme="dark"] {
+  background-color: var(--BG-DARK);
+  color: var(--COLOR-FT);
+} 
+
+[data-theme="dark"]body{
+  background-color: var(--BG-DARK);
+  color: var(--COLOR-FT);
+} 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { IcBaselineColorLens } from "../../assests/icons/icons";
-import { useAuthContext, useNoteContext } from "../../context";
+import { useAuthContext, useNoteContext, useThemeContext } from "../../context";
 import { colorPlallateData } from "../../data/color-pallate-data";
 import { priorityData, tagsData } from "../../data/filter-data";
 import "./AddNote.css";
@@ -14,10 +14,11 @@ export function AddNote({ editNoteBtn, setEditNoteBtn }) {
     editNoteHandler,
   } = useNoteContext();
   const [hideColorPlallate, setHideColorPlallate] = useState(true);
+  const {theme} = useThemeContext();
   return (
     <div
-      className="textfield"
-      style={{ backgroundColor: noteDetail.cardColor }}
+      className="textfield" data-theme={theme}
+      style={{ backgroundColor: noteDetail.cardColor}}
     >
       <input
         type="text"
@@ -43,8 +44,8 @@ export function AddNote({ editNoteBtn, setEditNoteBtn }) {
           }
         >
           <option hidden>Priority</option>
-          {priorityData.map((option) => (
-            <option>{option}</option>
+          {priorityData.map((option,index) => (
+            <option key={index}>{option}</option>
           ))}
         </select>
         <select
@@ -54,8 +55,8 @@ export function AddNote({ editNoteBtn, setEditNoteBtn }) {
           }
         >
           <option hidden>Tags</option>
-          {tagsData.map((option) => (
-            <option>{option}</option>
+          {tagsData.map((option,index) => (
+            <option key={index}>{option}</option>
           ))}
         </select>
         <div

@@ -13,12 +13,15 @@ import {
 } from "./pages";
 import { injectStyle } from "react-toastify/dist/inject-style";
 import { ToastContainer } from "react-toastify";
+import { useThemeContext } from "./context";
+import { NavbarBottom } from "./components";
 function App() {
   if (typeof window !== "undefined") {
     injectStyle();
   }
+  const {theme} = useThemeContext()
   return (
-    <div className="App">
+    <div className="App" data-theme = {theme}>
       <Routes>
         <Route element={<WithHeader />}>
           <Route element={<RequireAuth />}>
@@ -32,7 +35,8 @@ function App() {
         </Route>
         <Route path="/" element={<LandingPage />} />
       </Routes>
-      <ToastContainer/>
+      <NavbarBottom/>
+      <ToastContainer autoClose={2000}/>
     </div>
   );
 }

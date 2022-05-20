@@ -11,4 +11,60 @@
 
 .filter {
   grid-area: filter;
+  background-color: inherit;
+}
+
+.btn-filter {
+  display: none;
+}
+
+.row-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media only screen and (max-width: 850px) {
+  .page-layout {
+    grid-template-areas: "aside main"
+    "filter main";
+  }
+
+  .filter-container {
+    margin: 0 1rem;
+  }
+}
+
+@media only screen and (max-width: 600px){
+  .page-layout {
+    grid-template-areas: "main main";
+  }
+  .aside {
+    display: none;
+  }
+
+  .filter {
+    display: none;
+  }
+
+  .textfield {
+    width: auto;
+  }
+
+  .btn-filter {
+    display: block;
+  }
+
+  .aside-filter {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      background-color: var(--COLOR-FT);
+      height: 100vh;
+  }
 }

@@ -35,10 +35,9 @@ export const AuthProvider = ({ children }) => {
         if (response.status === 201) {
           toast.success("Account created");
           navigate(location?.state?.from?.pathname || "/");
-          localStorage.setItem("userDetail", response.data.foundUser);
+          localStorage.setItem("userDetail", response.data.createdUser);
           localStorage.setItem("token", response.data.encodedToken);
         }
-        console.log(response);
       } catch (error) {
         console.log(error);
       }
@@ -69,10 +68,13 @@ export const AuthProvider = ({ children }) => {
     if (state.field.email && state.field.password) {
       try {
         const response = await axios.post(`/api/auth/login`, state.field);
-
         if (response.status === 200) {
+          toast("Login successfully");
           navigate(location?.state?.from?.pathname || "/");
-          localStorage.setItem("userDetail", response.data.foundUser);
+          localStorage.setItem(
+            "userDetail",
+            JSON.stringify(response.data.foundUser)
+          );
           localStorage.setItem("token", response.data.encodedToken);
         }
       } catch (error) {
@@ -100,8 +102,8 @@ export const AuthProvider = ({ children }) => {
         email: "adarshbalika@gmail.com",
         password: "adarshBalika123",
       });
-console.log(response)
       if (response.status === 200) {
+        toast("Login successfully");
         navigate(location?.state?.from?.pathname || "/");
         localStorage.setItem(
           "userDetail",
@@ -141,4 +143,3 @@ console.log(response)
 };
 
 export const useAuthContext = () => useContext(AuthContext);
-
