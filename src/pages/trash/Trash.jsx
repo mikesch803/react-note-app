@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Aside, Note } from "../../components";
+import { Aside, Note, SearchBar } from "../../components";
 import {   useTrashContext } from "../../context";
 export function Trash() {
   const { trashNotes, emptyTrashHandler } = useTrashContext();
@@ -9,6 +9,7 @@ export function Trash() {
       <Aside />
       <main className="main">
           <button className="btn btn-link" onClick={emptyTrashHandler}>Empty Trash</button>
+          <SearchBar/>
         <ul>
           {trashNotes.map((note) => (
             <li key={note._id} className="m-b-1">

@@ -10,7 +10,7 @@ export const NoteProvider = ({ children }) => {
     priority: "low",
     tags: "home",
     cardColor: "var(--BG-BODY)",
-    date: new Date().getTime()
+    date: new Date().getTime(),
   });
   const [editNoteDetail, setEditNoteDetail] = useState({
     title: "",
@@ -19,7 +19,6 @@ export const NoteProvider = ({ children }) => {
     tags: "home",
     cardColor: "var(--BG-BODY)",
   });
-console.log(notes)
   const addNoteHandler = async (note, token) => {
     if (note.title.trim() !== "" && note.desc.trim() !== ""){          
     try {

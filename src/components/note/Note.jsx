@@ -2,7 +2,6 @@ import React from "react";
 import {
   ArchiveIcon,
   EditIcon,
-  PinLineIcon,
   RestoreIcon,
   TrashIcon,
   UnarchiveIcon,
@@ -38,10 +37,6 @@ export function Note({ note, setEditNoteBtn }) {
     <div className="note-container" style={{ backgroundColor: note.cardColor }}>
       <h3 className="note-title">
         {note.title}
-
-        <button className="btn note-pin ft-grey">
-          <PinLineIcon />
-        </button>
       </h3>
       <p className="note-content">{note.desc}</p>
       <div className="note-footer">

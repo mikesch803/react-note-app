@@ -24,6 +24,13 @@ export const filterReducer = (state, action) => {
               sortByTags: [...state.sortByTags, action.payload],
             };
 
+            case "SEARCH": 
+            console.log(action.payload)
+            return {
+              ...state,
+              search: action.payload
+            };
+
         case "CLEAR":
             return {...state, sortByDate:null, sortByPriority: null, sortByTags:[]}
 

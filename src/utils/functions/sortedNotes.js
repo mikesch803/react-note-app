@@ -16,5 +16,10 @@ export const sortedNotes = (notes, state) => {
       state.sortByTags.includes(item.tags)
     );
   }
+  if(state.search) {
+    console.log(filterNotes)
+    filterNotes = filterNotes.filter((item) => item.title.toLowerCase().match(state.search.toLowerCase()))
+  }
+  
   return filterNotes;
 };
