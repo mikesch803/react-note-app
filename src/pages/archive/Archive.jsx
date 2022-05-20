@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Aside, Note } from "../../components";
+import { Aside, Note, SearchBar } from "../../components";
 import { useArchiveContext, useAuthContext } from "../../context";
 export function Archive() {
   const { archives, setArchives, unArchiveHandler} = useArchiveContext();
@@ -26,6 +26,7 @@ export function Archive() {
     <div className="page-layout">
       <Aside />
       <main className="main">
+        <SearchBar/>
         <ul>
           {archives.map((note) => (
             <li key={note._id} className="m-b-1">

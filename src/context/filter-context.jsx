@@ -12,6 +12,7 @@ export const FilterProvider = ({ children }) => {
     sortByDate: null,
     sortByPriority: null,
     sortByTags: [],
+    search:null
   });
 
   const getFilteredNotes = sortedNotes(notes, state);

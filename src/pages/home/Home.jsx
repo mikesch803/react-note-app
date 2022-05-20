@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { AddNote, Aside, Filter, Note } from "../../components";
+import { AddNote, Aside, Filter, Note, SearchBar } from "../../components";
 import { useArchiveContext, useAuthContext, useFilterContext, useNoteContext } from "../../context";
 import "./Home.css";
 export function Home() {
   const { setNotes } = useNoteContext();
   const { addToArchiveHandler} = useArchiveContext();
   const { getFilteredNotes } = useFilterContext();
-  console.log(getFilteredNotes)
+
   const { token } = useAuthContext();
   const [editNoteBtn, setEditNoteBtn] = useState(false);
   useEffect(() => {
@@ -27,12 +27,15 @@ export function Home() {
       }
     })();
   }, [setNotes, addToArchiveHandler, token]);
+  // console.log(getFilteredNotes)
   return (
     <div className="page-layout">
       <Aside />
       <main className="main">
+        <SearchBar/>
         <AddNote editNoteBtn={editNoteBtn} setEditNoteBtn={setEditNoteBtn} />
         <ul>
+            <h2>Others</h2>
           {getFilteredNotes.map((note) => (
             <li key={note._id} className="m-b-1">
               <Note

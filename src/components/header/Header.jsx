@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { CarbonSearch } from "../../assests/icons/icons";
 import { useAuthContext } from "../../context";
 import "./Header.css";
 export function Header() {
@@ -11,10 +10,7 @@ export function Header() {
       <Link to="/">
         <h1 className="navbar-title">Note app</h1>
       </Link>
-      <div className="navbar-search">
-        <input type="text" placeholder="search..." className="navbar-input" />
-        <CarbonSearch />
-      </div>
+      
       <div className="navbar-icons">
         {token ? (
           <span className="btn btn-link navbar-login btn-user">{user.firstName}</span>
