@@ -1,12 +1,11 @@
 import React from "react";
-import { useFilterContext, useThemeContext } from "../../context";
+import { useFilterContext } from "../../context";
 import { priorityData, tagsData } from "../../data/filter-data";
 import "./Filter.css";
 export function Filter() {
   const { state, filterDispatch } = useFilterContext();
-  const {theme} = useThemeContext();
   return (
-    <aside data-theme={theme} className="aside-filter">
+    <aside className="aside-filter">
       <div className="filter-container m-b-1">
         <h2 className="filter-title">
           Filters

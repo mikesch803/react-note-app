@@ -4,13 +4,6 @@
     padding: 0.5rem;
 }
 
-
-[data-theme="dark"].navbar-search {
-    background-color: var(--BG-DARK);
-    color: var(--COLOR-FT);
-    border: 1px solid;
-  } 
-
   .navbar-search input {
       color: inherit;
       background-color: inherit;

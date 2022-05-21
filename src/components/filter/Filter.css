@@ -44,8 +44,3 @@
     display: flex;
     flex-direction: column;
 }
-
-[data-theme="dark"].aside-filter {
-    background-color: var(--BG-DARK);
-    color: var(--COLOR-FT);
-}

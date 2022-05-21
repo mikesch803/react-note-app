@@ -9,7 +9,6 @@ import {
   AuthProvider,
   FilterProvider,
   NoteProvider,
-  ThemeProvider,
   TrashProvider,
 } from "./context";
 // Call make Server
@@ -19,7 +18,6 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Router>
-      <ThemeProvider>
         <TrashProvider>
           <ArchiveProvider>
             <NoteProvider>
@@ -31,7 +29,6 @@ root.render(
             </NoteProvider>
           </ArchiveProvider>
         </TrashProvider>
-      </ThemeProvider>
     </Router>
   </React.StrictMode>
 );

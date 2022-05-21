@@ -16,11 +16,6 @@
     justify-content: space-between;
   }
 
-  [data-theme="dark"].navbar-bottom{
-      background-color: var(--BG-DARK);
-      color: var(--COLOR-FT);
-  }
-
   @media only screen and (max-width: 600px) {
     .navbar-bottom {
         display: block;

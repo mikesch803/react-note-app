@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { IcBaselineColorLens } from "../../assests/icons/icons";
-import { useAuthContext, useNoteContext, useThemeContext } from "../../context";
+import { useAuthContext, useNoteContext } from "../../context";
 import { colorPlallateData } from "../../data/color-pallate-data";
 import { priorityData, tagsData } from "../../data/filter-data";
 import "./AddNote.css";
@@ -14,10 +14,9 @@ export function AddNote({ editNoteBtn, setEditNoteBtn }) {
     editNoteHandler,
   } = useNoteContext();
   const [hideColorPlallate, setHideColorPlallate] = useState(true);
-  const {theme} = useThemeContext();
   return (
     <div
-      className="textfield" data-theme={theme}
+      className="textfield"
       style={{ backgroundColor: noteDetail.cardColor}}
     >
       <input

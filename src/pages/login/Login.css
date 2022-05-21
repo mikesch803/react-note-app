@@ -10,8 +10,6 @@
   grid-area: main;
   padding: 1rem;
   justify-content: center;
-  background-color: inherit;
-  color: inherit;
   gap: 0.5rem;
   position: relative;
   height: fit-content;
@@ -48,12 +46,7 @@
   position: relative;
 }
 
-input.form-input, .form {
-  color: inherit;
+.form-input {
   background-color: inherit;
+  color: inherit;
 }
-
-[data-theme="dark"].login-page {
-  background-color: var(--BG-DARK);
-  color: var(--COLOR-FT);
-} 

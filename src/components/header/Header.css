@@ -56,11 +56,5 @@
 }
 
 .btn-user {
-  
   background-color: inherit;
 }
-
-[data-theme="dark"].navbar {
-  background-color: var(--BG-DARK);
-  color: var(--COLOR-FT);
-} 

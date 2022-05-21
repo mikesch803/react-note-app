@@ -4,15 +4,14 @@ import {
   PasswordNotShowIcon,
   PasswordShowIcon,
 } from "../../assests/icons/icons";
-import { useAuthContext, useThemeContext } from "../../context";
+import { useAuthContext } from "../../context";
 import "./Login.css";
 
 export function Login() {
   const { loginUserHandler, state, dispatch, guestLoginHandler } =
-    useAuthContext();
-const {theme} = useThemeContext();
+    useAuthContext(); 
   return (
-    <div className="login-page" data-theme={theme}>
+    <div className="login-page">
       <form className="form form-login" onSubmit={(e) => loginUserHandler(e)}>
         <h2 className="title-form">Login</h2>
         <input

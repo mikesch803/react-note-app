@@ -10,7 +10,6 @@ import {
   useArchiveContext,
   useAuthContext,
   useNoteContext,
-  useThemeContext,
   useTrashContext,
 } from "../../context";
 import { checkArchive, checkTrash } from "../../utils/functions";
@@ -34,9 +33,8 @@ export function Note({ note, setEditNoteBtn }) {
     deleteFromTrashHandler
   } = useTrashContext();
   const { token } = useAuthContext();
-  const {theme} = useThemeContext();
   return (
-    <div className="note-container" data-theme={theme} style={{ backgroundColor: note.cardColor }}>
+    <div className="note-container" style={{ backgroundColor: note.cardColor }}>
       <h3 className="note-title">
         {note.title}
       </h3>

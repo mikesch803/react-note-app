@@ -7,7 +7,6 @@
   --COLOR-FT: white;
   --COLOR-BORDER: #edebeb;
   --BORDER-RADIUS: 5px;
-  --BG-DARK:#0F172A;
 }
 
 * {
@@ -21,6 +20,11 @@ a {
   text-decoration: none;
 }
 
+.form-input {
+  border: 1px solid;
+  border-radius: var(--BORDER-RADIUS);
+}
+
 .App {
   margin: auto;
   min-height: 100vh;
@@ -28,12 +32,3 @@ a {
   background-color: var(--COLOR-FT);
 }
 
-[data-theme="dark"].App {
-  background-color: var(--BG-DARK);
-  color: var(--COLOR-FT);
-} 
-
-[data-theme="dark"]body{
-  background-color: var(--BG-DARK);
-  color: var(--COLOR-FT);
-} 
