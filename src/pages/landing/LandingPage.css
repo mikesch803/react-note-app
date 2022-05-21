@@ -16,6 +16,8 @@
     margin-bottom: 5rem;
     font-size: 3rem;
     color: var(--COLOR-PRIMARY);
+    display: flex;
+    align-items: center;
 }
 
 .main-text h2 {

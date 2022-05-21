@@ -1,10 +1,12 @@
 import React from 'react'
 import { Aside } from '../../components'
 import { useAuthContext } from '../../context';
+import { useTitle } from '../../hooks/useTitle';
 import './Profile.css'
 export function Profile() {
     const { user, logoutHandler } = useAuthContext();
 
+    useTitle("Profile")
   return (
     <div className='page-layout'>
         <Aside/>

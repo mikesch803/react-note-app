@@ -3,6 +3,7 @@ import axios from "axios";
 import { AddNote, Aside, Filter, Note, SearchBar } from "../../components";
 import { useArchiveContext, useAuthContext, useFilterContext, useNoteContext } from "../../context";
 import "./Home.css";
+import { useTitle } from "../../hooks/useTitle";
 export function Home() {
   const { setNotes } = useNoteContext();
   const { addToArchiveHandler} = useArchiveContext();
@@ -25,6 +26,8 @@ export function Home() {
       }
     })();
   }, [setNotes, addToArchiveHandler, token]);
+ 
+  useTitle("Home")
 
 const [filterModal, setFilterModal] = useState(false);
 

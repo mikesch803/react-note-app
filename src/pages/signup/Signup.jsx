@@ -5,12 +5,14 @@ import {
   PasswordShowIcon,
 } from "../../assests/icons/icons";
 import { useAuthContext } from "../../context";
+import { useTitle } from "../../hooks/useTitle";
 
 import "./Signup.css";
 
 export function Signup() {
   const { signupHandler, state, dispatch } = useAuthContext();
 
+  useTitle("Signup")
   return (
     <div className="signup-page">
       <form

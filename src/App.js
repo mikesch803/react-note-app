@@ -22,6 +22,7 @@ function App() {
     <div className="App">
       <Routes>
         <Route element={<WithHeader />}>
+        <Route path="*" element={<Home />}/>
           <Route element={<RequireAuth />}>
             <Route path="/home" element={<Home />} />
             <Route path="/archive" element={<Archive />} />
