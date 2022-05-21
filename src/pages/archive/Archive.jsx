@@ -2,10 +2,13 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Aside, Note, SearchBar } from "../../components";
 import { useArchiveContext, useAuthContext } from "../../context";
+import { useTitle } from "../../hooks/useTitle";
 export function Archive() {
   const { archives, setArchives, unArchiveHandler} = useArchiveContext();
   const { token } = useAuthContext();
   const [editNoteBtn, setEditNoteBtn] = useState(false);
+  
+  useTitle("Archive")
   useEffect(() => {
     (async () => {
       try {

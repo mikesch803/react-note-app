@@ -5,9 +5,12 @@ import {
   PasswordShowIcon,
 } from "../../assests/icons/icons";
 import { useAuthContext } from "../../context";
+import { useTitle } from "../../hooks/useTitle";
 import "./Login.css";
 
 export function Login() {
+  
+  useTitle("Login")
   const { loginUserHandler, state, dispatch, guestLoginHandler } =
     useAuthContext(); 
   return (

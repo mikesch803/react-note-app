@@ -35,7 +35,10 @@ export const AuthProvider = ({ children }) => {
         if (response.status === 201) {
           toast.success("Account created");
           navigate(location?.state?.from?.pathname || "/");
-          localStorage.setItem("userDetail", response.data.createdUser);
+          localStorage.setItem(
+            "userDetail",
+            JSON.stringify(response.data.createdUser)
+          );
           localStorage.setItem("token", response.data.encodedToken);
         }
       } catch (error) {

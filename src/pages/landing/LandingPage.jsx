@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import BoyIllustration from "../../assests/images/illustration.svg";
+import { useTitle } from "../../hooks/useTitle";
 import "./LandingPage.css";
 export function LandingPage() {
+  useTitle("Landing Page")
   return (
     <div className="landing-page">
       <main className="main-text">
