@@ -20,11 +20,15 @@ a {
   text-decoration: none;
 }
 
-body {
-  background-color: var(--COLOR-FT);
+.form-input {
+  border: 1px solid;
+  border-radius: var(--BORDER-RADIUS);
 }
 
 .App {
-  width: 80%;
   margin: auto;
+  min-height: 100vh;
+  height: 100%;
+  background-color: var(--COLOR-FT);
 }
+

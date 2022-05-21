@@ -18,18 +18,17 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Router>
-      <TrashProvider>
-        <ArchiveProvider>
-          <NoteProvider>
-            <FilterProvider>
-              <AuthProvider>
-                <App />
-              </AuthProvider>
-            </FilterProvider>
-          </NoteProvider>
-        </ArchiveProvider>
-      </TrashProvider>
+        <TrashProvider>
+          <ArchiveProvider>
+            <NoteProvider>
+              <FilterProvider>
+                <AuthProvider>
+                  <App />
+                </AuthProvider>
+              </FilterProvider>
+            </NoteProvider>
+          </ArchiveProvider>
+        </TrashProvider>
     </Router>
   </React.StrictMode>
 );
-

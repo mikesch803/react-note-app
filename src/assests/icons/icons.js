@@ -111,3 +111,17 @@ export function RestoreIcon(props) {
     <svg width="1em" height="1em" viewBox="0 0 24 24" {...props}><path fill="currentColor" d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2H8c-1.1 0-2 .9-2 2v10zm5.65-8.65c.2-.2.51-.2.71 0L16 14h-2v4h-4v-4H8l3.65-3.65zM15.5 4l-.71-.71c-.18-.18-.44-.29-.7-.29H9.91c-.26 0-.52.11-.7.29L8.5 4H6c-.55 0-1 .45-1 1s.45 1 1 1h12c.55 0 1-.45 1-1s-.45-1-1-1h-2.5z"></path></svg>
   )
 }
+
+
+export function SunIcon(props) {
+  return (
+    <svg width="1em" height="1em" viewBox="0 0 36 36" {...props}><path fill="currentColor" d="M18 6.42a1 1 0 0 0 1-1V1.91a1 1 0 0 0-2 0v3.51a1 1 0 0 0 1 1Z" className="clr-i-solid clr-i-solid-path-1"></path><path fill="currentColor" d="M18 29.58a1 1 0 0 0-1 1v3.51a1 1 0 0 0 2 0v-3.51a1 1 0 0 0-1-1Z" className="clr-i-solid clr-i-solid-path-2"></path><path fill="currentColor" d="M8.4 9.81A1 1 0 0 0 9.81 8.4L7.33 5.92a1 1 0 0 0-1.41 1.41Z" className="clr-i-solid clr-i-solid-path-3"></path><path fill="currentColor" d="M27.6 26.19a1 1 0 0 0-1.41 1.41l2.48 2.48a1 1 0 0 0 1.41-1.41Z" className="clr-i-solid clr-i-solid-path-4"></path><path fill="currentColor" d="M6.42 18a1 1 0 0 0-1-1H1.91a1 1 0 0 0 0 2h3.51a1 1 0 0 0 1-1Z" className="clr-i-solid clr-i-solid-path-5"></path><path fill="currentColor" d="M34.09 17h-3.51a1 1 0 0 0 0 2h3.51a1 1 0 0 0 0-2Z" className="clr-i-solid clr-i-solid-path-6"></path><path fill="currentColor" d="m8.4 26.19l-2.48 2.48a1 1 0 0 0 1.41 1.41l2.48-2.48a1 1 0 0 0-1.41-1.41Z" className="clr-i-solid clr-i-solid-path-7"></path><path fill="currentColor" d="m27.6 9.81l2.48-2.48a1 1 0 0 0-1.41-1.41L26.19 8.4a1 1 0 0 0 1.41 1.41Z" className="clr-i-solid clr-i-solid-path-8"></path><circle cx="18" cy="18" r="10" fill="currentColor" className="clr-i-solid clr-i-solid-path-9"></circle><path fill="none" d="M0 0h36v36H0z"></path></svg>
+  )
+}
+
+
+export function MoonIcon(props) {
+  return (
+    <svg width="1em" height="1em" viewBox="0 0 36 36" {...props}><path fill="currentColor" d="M29.2 26.72a12.07 12.07 0 0 1-6.3-22.28A13.68 13.68 0 0 0 19.49 4a14 14 0 0 0 0 28a13.82 13.82 0 0 0 10.9-5.34a11.71 11.71 0 0 1-1.19.06Z" className="clr-i-solid clr-i-solid-path-1"></path><path fill="none" d="M0 0h36v36H0z"></path></svg>
+  )
+}

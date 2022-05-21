@@ -10,10 +10,11 @@
   grid-area: main;
   padding: 1rem;
   justify-content: center;
-  background-color: var(--COLOR-FT);
   gap: 0.5rem;
   position: relative;
   height: fit-content;
+  border: 1px solid;
+  border-radius: var(--BORDER-RADIUS);
 }
 
 .form-btn {
@@ -35,6 +36,7 @@
   position: absolute;
   right: 10px;
   display: flex;
+  color: inherit;
 }
 
 .parent-div {
@@ -42,4 +44,9 @@
   gap: 0.5rem;
   align-items: center;
   position: relative;
+}
+
+.form-input {
+  background-color: inherit;
+  color: inherit;
 }

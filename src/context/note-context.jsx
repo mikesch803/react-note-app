@@ -9,7 +9,7 @@ export const NoteProvider = ({ children }) => {
     desc: "",
     priority: "low",
     tags: "home",
-    cardColor: "var(--BG-BODY)",
+    cardColor : "var(--BG-BODY)",
     date: new Date().getTime(),
   });
   const [editNoteDetail, setEditNoteDetail] = useState({
@@ -41,7 +41,7 @@ export const NoteProvider = ({ children }) => {
         desc: "",
         priority: "low",
         tags: "home",
-        cardColor: "var(--BG-BODY)",
+        cardColor : "var(--BG-BODY)",
         date: new Date().getTime()
       });
     } catch (err) {
@@ -88,7 +88,7 @@ export const NoteProvider = ({ children }) => {
         desc: "",
         priority: "low",
         tags: "home",
-        cardColor: "var(--BG-BODY)",
+        cardColor : "var(--BG-BODY)",
       });
     } catch (err) {
       console.log(err);

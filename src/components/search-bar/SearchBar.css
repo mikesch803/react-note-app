@@ -1,3 +1,10 @@
 .navbar-search {
     margin-bottom: 1rem;
+    color: inherit;
+    padding: 0.5rem;
 }
+
+  .navbar-search input {
+      color: inherit;
+      background-color: inherit;
+  }

@@ -9,8 +9,7 @@ import "./Login.css";
 
 export function Login() {
   const { loginUserHandler, state, dispatch, guestLoginHandler } =
-    useAuthContext();
-
+    useAuthContext(); 
   return (
     <div className="login-page">
       <form className="form form-login" onSubmit={(e) => loginUserHandler(e)}>

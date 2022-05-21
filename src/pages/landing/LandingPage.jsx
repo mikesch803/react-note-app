@@ -21,7 +21,8 @@ export function LandingPage() {
         </Link>
       </main>
       <main className="main-img">
-        <img src={BoyIllustration} alt="boy illustration" />
+        <img src={BoyIllustration} alt="boy illustration" 
+        className="responsive"/>
       </main>
     </div>
   );

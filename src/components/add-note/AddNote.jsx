@@ -17,7 +17,7 @@ export function AddNote({ editNoteBtn, setEditNoteBtn }) {
   return (
     <div
       className="textfield"
-      style={{ backgroundColor: noteDetail.cardColor }}
+      style={{ backgroundColor: noteDetail.cardColor}}
     >
       <input
         type="text"
@@ -43,8 +43,8 @@ export function AddNote({ editNoteBtn, setEditNoteBtn }) {
           }
         >
           <option hidden>Priority</option>
-          {priorityData.map((option) => (
-            <option>{option}</option>
+          {priorityData.map((option,index) => (
+            <option key={index}>{option}</option>
           ))}
         </select>
         <select
@@ -54,8 +54,8 @@ export function AddNote({ editNoteBtn, setEditNoteBtn }) {
           }
         >
           <option hidden>Tags</option>
-          {tagsData.map((option) => (
-            <option>{option}</option>
+          {tagsData.map((option,index) => (
+            <option key={index}>{option}</option>
           ))}
         </select>
         <div

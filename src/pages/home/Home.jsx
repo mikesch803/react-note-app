@@ -7,7 +7,6 @@ export function Home() {
   const { setNotes } = useNoteContext();
   const { addToArchiveHandler} = useArchiveContext();
   const { getFilteredNotes } = useFilterContext();
-
   const { token } = useAuthContext();
   const [editNoteBtn, setEditNoteBtn] = useState(false);
   useEffect(() => {
@@ -21,21 +20,23 @@ export function Home() {
         if (response.status === 200) {
           setNotes(response.data.notes);
         }
-        console.log(response.data.notes)
       } catch (err) {
         console.error(err);
       }
     })();
   }, [setNotes, addToArchiveHandler, token]);
-  // console.log(getFilteredNotes)
+
+const [filterModal, setFilterModal] = useState(false);
+
+
   return (
     <div className="page-layout">
       <Aside />
       <main className="main">
-        <SearchBar/>
+        <div className="row-container"><SearchBar/>
+        <button className="btn btn-primary btn-filter" onClick={()=>setFilterModal(!filterModal)}>filter</button></div>
         <AddNote editNoteBtn={editNoteBtn} setEditNoteBtn={setEditNoteBtn} />
         <ul>
-            <h2>Others</h2>
           {getFilteredNotes.map((note) => (
             <li key={note._id} className="m-b-1">
               <Note
@@ -47,7 +48,7 @@ export function Home() {
           ))}
         </ul>
       </main>
-      <aside className="filter"><Filter/></aside>
+      <aside className={filterModal?`filter-modal`:`filter`} onClick={()=>setFilterModal(!filterModal)}><Filter/></aside>
     </div>
   );
 }

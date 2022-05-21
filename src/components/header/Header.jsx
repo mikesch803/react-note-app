@@ -4,7 +4,6 @@ import { useAuthContext } from "../../context";
 import "./Header.css";
 export function Header() {
   const { token, user } = useAuthContext();
-
   return (
     <div className="navbar">
       <Link to="/">

@@ -13,6 +13,7 @@ import {
 } from "./pages";
 import { injectStyle } from "react-toastify/dist/inject-style";
 import { ToastContainer } from "react-toastify";
+import { NavbarBottom } from "./components";
 function App() {
   if (typeof window !== "undefined") {
     injectStyle();
@@ -32,7 +33,8 @@ function App() {
         </Route>
         <Route path="/" element={<LandingPage />} />
       </Routes>
-      <ToastContainer/>
+      <NavbarBottom/>
+      <ToastContainer autoClose={2000}/>
     </div>
   );
 }
