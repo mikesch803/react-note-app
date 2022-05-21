@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import BoyIllustration from "../../assests/images/illustration.svg";
+import logo from "../../assests/images/logo.png"
 import { useTitle } from "../../hooks/useTitle";
 import "./LandingPage.css";
 export function LandingPage() {
@@ -9,7 +10,7 @@ export function LandingPage() {
     <div className="landing-page">
       <main className="main-text">
         <Link to="/home">
-          <h1>Note App</h1>
+          <h1>Note App <img src={logo} alt="logo" width={100} height={100}/></h1>
         </Link>
         <h2>
           Meet your modern <strong>Note taking App</strong>
