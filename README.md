@@ -27,7 +27,7 @@
 
 ## **Built with -**
 
-- React JS
+- React JS, TypeScript
 - React Router v6
 - [FIT UI COMPONENT LIBRARY](https://fit-ui.netlify.app/)
 
