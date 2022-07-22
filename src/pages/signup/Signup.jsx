@@ -1,23 +1,24 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import {
-  PasswordNotShowIcon,
-  PasswordShowIcon,
-} from "../../assests/icons/icons";
+import { PasswordNotShowIcon, PasswordShowIcon } from "../../assests/icons";
 import { useAuthContext } from "../../context";
 import { useTitle } from "../../hooks/useTitle";
-
+import { useValidation } from "../../hooks/useValidation";
 import "./Signup.css";
 
 export function Signup() {
   const { signupHandler, state, dispatch } = useAuthContext();
-
-  useTitle("Signup")
+  const { formValidation, errMsg } = useValidation();
+  useTitle("Signup");
   return (
     <div className="signup-page">
       <form
         className="form form-signup"
         onSubmit={(e) => {
+          formValidation(
+            state.field.email,
+            state.field.password,
+            state.field.confirmPassword
+          );
           signupHandler(e);
         }}
       >
@@ -48,9 +49,7 @@ export function Signup() {
           onChange={(e) => dispatch({ type: "ADD_FIELD", payload: e.target })}
           required
         />
-        {state.emailErrState && (
-          <small className="form-error">invalid mail</small>
-        )}
+        <small className="form-error">{errMsg.email}</small>
         <div className="parent-div">
           <input
             type={state.passwordType}
@@ -71,11 +70,7 @@ export function Signup() {
             )}
           </span>
         </div>
-        {state.passwordErrState && (
-          <small className="form-error">
-            Password should be more than 8 character
-          </small>
-        )}
+        <small className="form-error">{errMsg.password}</small>
         <div className="parent-div">
           <input
             type={state.passwordType}
@@ -96,15 +91,7 @@ export function Signup() {
             )}
           </span>
         </div>
-        {state.confirmPasswordErrState && (
-          <small className="form-error">Password did not matched</small>
-        )}
-        <div className="form-checkbox signup-checkbox">
-          <label>
-            <input type="checkbox" required /> I accepted all terms and
-            conditions
-          </label>
-        </div>
+        <small className="form-error">{errMsg.confirmPassword}</small>
         <button className="btn btn-primary form-btn" type="submit">
           create new account
         </button>

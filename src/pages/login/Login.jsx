@@ -1,21 +1,22 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import {
-  PasswordNotShowIcon,
-  PasswordShowIcon,
-} from "../../assests/icons/icons";
+import { PasswordNotShowIcon, PasswordShowIcon } from "../../assests/icons";
 import { useAuthContext } from "../../context";
 import { useTitle } from "../../hooks/useTitle";
+import { useValidation } from "../../hooks/useValidation";
 import "./Login.css";
-
 export function Login() {
-  
-  useTitle("Login")
+  const { errMsg } = useValidation();
+  useTitle("Login");
   const { loginUserHandler, state, dispatch, guestLoginHandler } =
-    useAuthContext(); 
+    useAuthContext();
   return (
     <div className="login-page">
-      <form className="form form-login" onSubmit={(e) => loginUserHandler(e)}>
+      <form
+        className="form form-login"
+        onSubmit={(e) => {
+          loginUserHandler(e);
+        }}
+      >
         <h2 className="title-form">Login</h2>
         <input
           required
@@ -25,9 +26,7 @@ export function Login() {
           name="email"
           onChange={(e) => dispatch({ type: "ADD_FIELD", payload: e.target })}
         />
-        {state.emailErrState && (
-          <small className="form-error">email invalid</small>
-        )}
+        <small className="form-error">{errMsg.email}</small>
         <div className="parent-div">
           <input
             required
@@ -48,19 +47,7 @@ export function Login() {
             )}
           </span>
         </div>
-        {state.passwordErrState && (
-          <small className="form-error">
-            Password should be more than 8 character
-          </small>
-        )}
-        <div className="form-checkbox">
-          <label>
-            <input type="checkbox" /> Remember me
-          </label>
-          <Link to="#" className="btn btn-link">
-            Forget password?
-          </Link>
-        </div>
+        <small className="form-error">{errMsg.password}</small>
         <button className="btn btn-primary form-btn" type="submit">
           login
         </button>
